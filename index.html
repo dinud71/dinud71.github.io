@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antonello Home</title>
+  <link rel="icon" type="image/svg+xml" href="Images/Mouse.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="Images/Logo.svg" alt="Logo" width="150">
+    </div>
+    <button class="menu-btn" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+      <img src="Images/Menu.svg" alt="Menu" id="menuIcon">
+    </button>
+  </header>
+
+<!-- Fullscreen Overlay Menu -->
+<div class="overlay" id="overlayMenu" aria-hidden="true">
+  <button class="overlay-close-btn" id="overlayClose">
+    <img src="Images/MenuClose.svg" alt="Close Menu">
+  </button>
+
+  <nav class="overlay-content" role="navigation" aria-label="Main menu">
+    <!-- Links now point to IDs on the same page -->
+    <a href="#home">Home</a>
+    <a href="#works">Our Works</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact Us</a>
+
+    <hr>
+
+    <div class="overlay-logos">
+      <img src="Images/LogoStar.svg" alt="Logo Star">
+      <img src="Images/Logo.svg" alt="Logo">
+    </div>
+  </nav>
+</div>
+  
+  <!-- Video Banner -->
+<section id="home" class="video-banner">
+  <video autoplay muted loop playsinline>
+    <source src="Banner/BannerVideo.mp4" type="video/mp4">
+    <source src="Banner/BannerVideo.webm" type="video/webm">
+    Your browser does not support the video tag.
+  </video>
+</section>
+
+<!-- Banner Content -->
+<div class="banner-content">
+  <h1 class="banner-text">
+    We help business <br>
+    Look good, Reach right, and <br>
+    Stand out
+  </h1>
+
+<!-- Our Services Section -->
+<section class="our-services">
+  <h2>Our Services</h2>
+</section>
+
+<section class="services-grid">
+  <div class="service-box scroll-reveal">
+    <img src="Images/Brand Strategy Icon.svg" alt="Brand Strategy Icon" class="service-icon">
+    <h3 class="service-title">Brand Strategy</h3>
+  </div>
+
+  <div class="service-box scroll-reveal">
+    <img src="Images/Brand Identity Icon.svg" alt="Brand Strategy Icon" class="service-icon">
+    <h3 class="service-title">Brand Identity</h3>
+  </div>
+
+  <div class="service-box scroll-reveal">
+    <img src="Images/Marketing Strategy Icon.svg" alt="Brand Strategy Icon" class="service-icon">
+    <h3 class="service-title">Marketing Strategy</h3>
+  </div>
+
+  <div class="service-box scroll-reveal">
+    <img src="Images/Marketing Execution Icon.svg" alt="Brand Strategy Icon" class="service-icon">
+    <h3 class="service-title">Marketing Execution</h3>
+  </div>
+</section>
+
+<!-- Our Works Section -->
+<section id="works" class="our-services">
+  <h2>Our Works</h2>
+</section>
+
+<section class="portfolio-box">
+  <div class="portfolio-item">
+    <img src="Portfolio Designs/014.jpg" alt="Portfolio 1" class="portfolio-thumb" data-project="14_Botanique Hotel"> 
+  </div>
+  <div class="portfolio-item">
+    <img src="Portfolio Designs/015.jpg" alt="Portfolio 2" class="portfolio-thumb" data-project="15_SOARÊ - BAR & RESTAURANT">
+  </div>
+  <div class="portfolio-item">
+    <img src="Portfolio Designs/016.jpg" alt="Portfolio 3" class="portfolio-thumb" data-project="16_Hôtel Belleval">
+  </div>
+  <div class="portfolio-item">
+    <img src="Portfolio Designs/017.jpg" alt="Portfolio 4" class="portfolio-thumb" data-project="17_Chabino Cottage Branding">
+  </div>
+  <div class="portfolio-item">
+    <img src="Portfolio Designs/018.jpg" alt="Portfolio 5" class="portfolio-thumb" data-project="18_Henson Hotel">
+  </div>
+  <div class="portfolio-item">
+    <img src="Portfolio Designs/019.jpg" alt="Portfolio 6" class="portfolio-thumb" data-project="19_Hammock Park Residences">
+  </div>
+  <div class="portfolio-item">
+    <img src="Portfolio Designs/020.jpg" alt="Portfolio 7" class="portfolio-thumb" data-project="20_Berkeley, Dubai Hills - Brand Identity">
+  </div>
+  <div class="portfolio-item">
+    <img src="Portfolio Designs/021.jpg" alt="Portfolio 8" class="portfolio-thumb" data-project="21_Montaña. Ski resort apart-hotel">
+  </div>
+  <div class="portfolio-item">
+    <img src="Portfolio Designs/022.jpg" alt="Portfolio 9" class="portfolio-thumb" data-project="22_Stayery">
+  </div>
+  <div class="portfolio-item">
+    <img src="Portfolio Designs/023.jpg" alt="Portfolio 10" class="portfolio-thumb" data-project="23_Al Hudaida Hotel">
+  </div>
+  <div class="portfolio-item">
+    <img src="Portfolio Designs/024.jpg" alt="Portfolio 11" class="portfolio-thumb" data-project="24_Hotel Emporium">
+  </div>
+  <div class="portfolio-item">
+    <img src="Portfolio Designs/025.jpg" alt="Portfolio 12" class="portfolio-thumb" data-project="25_Bob's Bar">
+  </div>
+  <div class="portfolio-item">
+    <img src="Portfolio Designs/026.jpg" alt="Portfolio 13" class="portfolio-thumb" data-project="26_Hôtel Cargo">
+  </div>
+  <div class="portfolio-item">
+    <img src="Portfolio Designs/027.jpg" alt="Portfolio 14" class="portfolio-thumb" data-project="27_El Faro Resort">
+  </div>
+  <div class="portfolio-item">
+    <img src="Portfolio Designs/028.jpg" alt="Portfolio 15" class="portfolio-thumb" data-project="28_PALAUM - luxury villa">
+  </div>
+</section>
+
+
+<div class="slideshow-overlay">
+  <span class="close-button">&times;</span>
+  <!-- MOBILE CLOSE BUTTON -->
+  <button class="mobile-close-btn">
+    <img src="Images/MenuClose.svg" alt="Close">
+  </button>
+
+  <div class="slideshow-container">
+    <!-- Images will be appended here by JS -->
+  </div>
+</div>
+
+<section id="about" class="portfolio-description">
+  <p>
+    <br>Since 2016, we’ve created 100+ brands worldwide, from startups to established businesses exploring the future of design with AI-powered generative tools, while preparing to grow into a multidisciplinary team<br>
+    <br>We believe great design is not about trends, it's about clarity, consistency, and emotional connection. With AI-assisted creativity, we can now go beyond traditional design workflows, combining human judgment with generative possibilities.<br>
+    <br>We work at the intersection of branding, storytelling, and technology. Our focus is to help businesses simplify complexity and communicate clearly.
+  </p>
+</section>
+
+<!-- ✅ Footer -->
+<section id="contact" class="collaborate-section">
+  <h2>Let’s Collaborate</h2>
+</section>
+
+<section class="dummy-boxes">
+  <div class="dummy-box">
+    <span>Welcome<br>to the Club!</span>
+  </div>
+  <div class="dummy-box">
+    <span>Send a Brief @<br>dinu@antonello.in</span>
+  </div>
+  <div class="dummy-box">
+    <span>
+      <a href="https://www.facebook.com/antonello.studio" target="_blank" rel="noopener noreferrer">
+        Facebook<br>
+      <a href="https://www.instagram.com/antonello.studio/#" target="_blank" rel="noopener noreferrer">
+        Instagram<br>
+      </a>
+    </span>
+  </div>
+  <div class="dummy-box">
+    <span>
+      Wanna Join?<br>
+      <a href="https://www.linkedin.com/company/antonello-studio" target="_blank" rel="noopener noreferrer">
+        Check our Linkedin
+      </a>
+    </span>
+  </div>
+  <div class="dummy-box">
+    <span>Reach us @<br>+91 89044 31042<br>Bangalore, India</span>
+  </div>
+</section>
+
+<section class="logo-section">
+  <img src="Images/LogoStar.svg" alt="Logo Star" class="logo-star">
+  <img src="Images/Logo.svg" alt="Logo" class="logo-main">
+</section>
+
+<section class="footer-texts">
+  <p>© Antonello Studio (P) Ltd 2016 - 2025</p>
+  <p>#Branding</p>
+  <p>#Marketing</p>
+</section>
+
+  <!-- ✅ Shared JS -->
+  <script src="js/script.js" defer></script>
+</body>
+</html>
