@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antonello — Contextual YouTube Advertising</title>
+  <meta name="description" content="Antonello places your brand inside YouTube creator content, at the moment it naturally fits the conversation.">
+  <link rel="icon" type="image/svg+xml" href="Images/Mouse.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-skip" viewBox="0 0 24 24"><path d="M4 5l9 7-9 7zM15 5l9 7-9 7z" fill="currentColor" transform="scale(.85) translate(1 2)"/><path d="M21 5v14" stroke="currentColor" stroke-width="2" fill="none"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="5" fill="currentColor"/><path d="M10 8.5v7l6-3.5z" fill="#1c1c1c"/></symbol>
+  <symbol id="i-block" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M5.6 5.6l12.8 12.8" stroke="currentColor" stroke-width="2.4"/></symbol>
+  <symbol id="i-bars" viewBox="0 0 24 24"><path d="M4 20V13M10 20V8M16 20V11M22 20V3" stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none" transform="translate(-2 0)"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/></g><circle cx="12" cy="12" r="1.8" fill="currentColor"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M1.5 12S5.5 5 12 5s10.500 7 10.500 7-4 7-10.500 7S1.500 12 1.500 12z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.200" fill="currentColor"/></symbol>
+  <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M2 12h5l3-7 4 14 3-7h5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.500 9-8 11-4.500-2-8-6-8-11V5z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.500 12l2.500 2.500 4.500-5" stroke="currentColor" stroke-width="1.8" fill="none"/></symbol>
+  <symbol id="i-one" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="6" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><path d="M10.500 8.500L6.500 15.500M13.500 8.500l4 7"/></g></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></g></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></g></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></g></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></symbol>
+</svg>
+
+<!-- Header -->
+<header>
+  <a class="logo" href="#home" aria-label="Antonello home"><img src="Images/Logo.svg" alt="Antonello" width="150"></a>
+  <nav class="top-nav" aria-label="Primary">
+    <a href="#idea">How It Works</a>
+    <a href="#ad-products">Ad Products</a>
+    <a href="#examples">Examples</a>
+    <a href="#context">Context</a>
+    <a href="#why">Why Antonello</a>
+  </nav>
+  <a class="btn btn-sm" href="#contact">Talk to Us <span aria-hidden="true">→</span></a>
+  <button class="menu-btn" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+    <img src="Images/Menu.svg" alt="Menu" id="menuIcon">
+  </button>
+</header>
+
+<!-- Fullscreen overlay menu (mobile / tablet) -->
+<div class="overlay" id="overlayMenu" aria-hidden="true">
+  <button class="overlay-close-btn" id="overlayClose" aria-label="Close menu">
+    <img src="Images/MenuClose.svg" alt="Close Menu">
+  </button>
+  <nav class="overlay-content" aria-label="Main menu">
+    <a href="#idea">How It Works</a>
+    <a href="#ad-products">Ad Products</a>
+    <a href="#examples">Examples</a>
+    <a href="#context">Context</a>
+    <a href="#why">Why Antonello</a>
+    <a href="#contact">Talk to Us</a>
+    <hr>
+    <div class="overlay-logos">
+      <img src="Images/LogoStar.svg" alt="">
+      <img src="Images/Logo.svg" alt="Antonello">
+    </div>
+  </nav>
+</div>
+
+<main>
+
+<!-- 01 HERO -->
+<section id="home" class="hero">
+  <video class="hero-video" src="media/BannerVideo.mp4" autoplay muted loop playsinline preload="auto"></video>
+  <div class="hero-shade"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1>Stop interrupting<br>the content.<br><span class="o">Be part of it.</span></h1>
+      <p class="lede">We place your brand inside YouTube creator content — at the moment it naturally fits the conversation.</p>
+      <a class="btn" href="#contact">Talk to Us <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 02 PROBLEM -->
+<section id="problem" class="block">
+  <div class="wrap">
+    <span class="eyebrow"><b>02</b> The problem</span>
+    <div class="problem-grid">
+      <div>
+        <h2>People don't want <span class="o">another ad.</span></h2>
+        <div class="media wide" data-type="image" data-src="media/02Skipimage.jpg" data-label="Visual · teenager reaching for the remote to skip an ad"></div>
+      </div>
+      <ul class="points">
+        <li><svg class="ic"><use href="#i-skip"/></svg><h3>They skip it.</h3><p>People are trained to skip ads whenever possible.</p></li>
+        <li><svg class="ic"><use href="#i-yt"/></svg><h3>They use YouTube Premium.</h3><p>No traditional ad interruptions.</p></li>
+        <li><svg class="ic"><use href="#i-block"/></svg><h3>They block ads.</h3><p>Ad blocking keeps getting better.</p></li>
+        <li><svg class="ic"><use href="#i-bars"/></svg><h3>Attention costs more.</h3><p>So why keep paying to be ignored?</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 03 IDEA -->
+<section id="idea" class="block">
+  <div class="wrap">
+    <span class="eyebrow"><b>03</b> The idea</span>
+    <h2>Two things <span class="o">change the game.</span></h2>
+    <div class="idea-grid">
+      <div class="idea-cards">
+        <article class="card">
+          <span class="num">01</span>
+          <h3>Contextual</h3>
+          <p class="o strong">Put the brand where it makes sense.</p>
+          <p>Your brand appears inside content that is already relevant to what you're selling.</p>
+          <ul class="mini">
+            <li>Construction <i>→</i> Electrical Brand</li>
+            <li>Parenting <i>→</i> Baby Care</li>
+            <li>Beauty <i>→</i> Skincare</li>
+            <li>Finance <i>→</i> Financial Product</li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="num">02</span>
+          <h3>Built into the content</h3>
+          <p class="o strong">Don't wait for attention. Be part of it.</p>
+          <p>The brand placement becomes part of the creator's viewing experience instead of another traditional ad interruption.</p>
+        </article>
+      </div>
+      <div class="media demo" data-type="image" data-src="media/03IdeaImage.jpg" data-label="03IdeaImage.jpg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 AD PRODUCTS -->
+<section id="ad-products" class="block">
+  <div class="wrap">
+    <span class="eyebrow"><b>04</b> Ad products</span>
+    <h2>Your brand. <span class="o">Your space.</span></h2>
+    <p class="sub">Four ways to become part of the content.</p>
+    <div class="formats">
+      <article class="format f-pulse">
+        <div class="media frame" data-type="image" data-src="media/Pulse.jpg" data-label="Pulse.jpg"></div>
+        <h3 class="o">Pulse</h3><p class="strong">Small. Clean. Present.</p>
+        <p>A subtle brand placement that sits naturally inside the content.</p>
+      </article>
+      <article class="format f-flow">
+        <div class="media frame" data-type="image" data-src="media/Flow.jpg" data-label="Flow.jpg"></div>
+        <h3 class="o">Flow</h3><p class="strong">The brand flows with the content.</p>
+        <p>A larger contextual placement designed to capture attention.</p>
+      </article>
+      <article class="format f-dom">
+        <div class="media frame" data-type="image" data-src="media/Dominator.jpg" data-label="Dominator.jpg"></div>
+        <h3 class="o">Dominator</h3><p class="strong">High-impact. Maximum presence.</p>
+        <p>A bold placement for moments where the brand needs to own the frame.</p>
+      </article>
+      <article class="format f-blitz">
+        <div class="media frame" data-type="image" data-src="media/Blitz.jpg" data-label="Blitz.jpg"></div>
+        <h3 class="o">Blitz</h3><p class="strong">Quick hit. Big presence.</p>
+        <p>A short-form vertical placement built for fast-moving content.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 05 EXAMPLES -->
+<section id="examples" class="block">
+  <div class="wrap">
+    <span class="eyebrow"><b>05</b> See it in action</span>
+    <div class="head-row">
+      <h2>This is what your ad <span class="o">actually looks like.</span></h2>
+      <p class="sub">Don't take our word for it.<br>Watch it.</p>
+    </div>
+  </div>
+  <div class="gallery-wrap">
+    <button class="arrow prev" aria-label="Scroll left">‹</button>
+    <div class="gallery" id="gallery">
+      <figure><div class="media clip" data-src="media/Aachi_Dominator.mp4" data-label="Aachi_Dominator.mp4"></div><figcaption><b>Aachi Badam Drink</b><br>Summer Content <i>→</i> Refreshment / FMCG</figcaption></figure>
+      <figure><div class="media clip" data-src="media/Arun_Dominator.mp4" data-label="Arun_Dominator.mp4"></div><figcaption><b>Arun Excello</b><br>Home Tour Content <i>→</i> Real Estate</figcaption></figure>
+      <figure><div class="media clip" data-src="media/DAC_Dominator.mp4" data-label="DAC_Dominator.mp4"></div><figcaption><b>DAC Developers</b><br>House Warming Content <i>→</i> Real Estate</figcaption></figure>
+      <figure><div class="media clip" data-src="media/GT_Dominator.mp4" data-label="GT_Dominator.mp4"></div><figcaption><b>GT Holidays</b><br>Celebrity Tour Experience <i>→</i> Travel Booking</figcaption></figure>
+      <figure><div class="media clip" data-src="media/Lion_Dominator.mp4" data-label="Lion_Dominator.mp4"></div><figcaption><b>Lion Dates Squash</b><br>Kids Content <i>→</i> Refreshment Drink</figcaption></figure>
+    </div>
+    <button class="arrow next" aria-label="Scroll right">›</button>
+  </div>
+</section>
+
+<!-- 06 CONTEXT -->
+<section id="context" class="block">
+  <div class="wrap">
+    <span class="eyebrow"><b>06</b> Contextual matching</span>
+    <div class="context-grid">
+      <div>
+        <h2>We don't just find views.<br><span class="o">We find the right views.</span></h2>
+        <p class="sub">Every creator and video in our inventory is categorized by</p>
+        <p class="tags"><span>Content</span><span>Audience</span><span>Context</span></p>
+      </div>
+      <div class="pairs">
+        <div class="pair"><div class="media sq" data-type="image" data-src="media/context-construction.jpg" data-label="Construction"></div><b>Construction</b><span>→ Electrical Brand</span></div>
+        <div class="pair"><div class="media sq" data-type="image" data-src="media/context-parenting.jpg" data-label="Parenting"></div><b>Parenting</b><span>→ Baby Care</span></div>
+        <div class="pair"><div class="media sq" data-type="image" data-src="media/context-beauty.jpg" data-label="Beauty"></div><b>Beauty</b><span>→ Skincare</span></div>
+        <div class="pair"><div class="media sq" data-type="image" data-src="media/context-automotive.jpg" data-label="Automotive"></div><b>Automotive</b><span>→ Car Accessories</span></div>
+      </div>
+    </div>
+    <ul class="checks">
+      <li><svg class="ic"><use href="#i-check"/></svg>A construction campaign doesn't end up inside kids' videos.</li>
+      <li><svg class="ic"><use href="#i-check"/></svg>A beauty campaign doesn't get thrown randomly into car content.</li>
+      <li><svg class="ic"><use href="#i-check"/></svg>A financial product doesn't get distributed blindly across unrelated entertainment.</li>
+    </ul>
+    <p class="triple">Right brand. <span class="o">Right content.</span> Right audience.</p>
+  </div>
+</section>
+
+<!-- 07 INVENTORY -->
+<section id="inventory" class="block">
+  <div class="wrap">
+    <span class="eyebrow"><b>07</b> Creator inventory</span>
+    <h2>We keep the <span class="o">inventory active.</span></h2>
+    <p class="sub">We continuously onboard YouTube creators who meet our eligibility criteria.</p>
+    <ul class="icons five">
+      <li><svg class="ic"><use href="#i-pulse"/></svg><h3>Active channels</h3><p>Regular publishing activity.</p></li>
+      <li><svg class="ic"><use href="#i-hand"/></svg><h3>Open to sponsorships</h3><p>Creators are willing to accept brand placements.</p></li>
+      <li><svg class="ic"><use href="#i-eye"/></svg><h3>Minimum view requirements</h3><p>Channels meet our performance criteria.</p></li>
+      <li><svg class="ic"><use href="#i-shield"/></svg><h3>Verified inventory</h3><p>We review creator activity and audience performance.</p></li>
+      <li><svg class="ic"><use href="#i-plus"/></svg><h3>Fresh inventory</h3><p>New creators are added regularly.</p></li>
+    </ul>
+    <p class="closing">A large, active and constantly refreshed creator inventory ready for campaigns.</p>
+  </div>
+</section>
+
+<!-- 08 WHY -->
+<section id="why" class="block">
+  <div class="wrap">
+    <span class="eyebrow"><b>08</b> Why Antonello</span>
+    <h2>Why this <span class="o">works.</span></h2>
+    <ul class="icons six">
+      <li><svg class="ic"><use href="#i-target"/></svg><h3>Context</h3><p>Your brand appears where the conversation makes sense.</p></li>
+      <li><svg class="ic"><use href="#i-hand"/></svg><h3>Approval</h3><p>You approve the creative and placement before it goes live.</p></li>
+      <li><svg class="ic"><use href="#i-eye"/></svg><h3>Attention</h3><p>People already chose to watch the creator.</p></li>
+      <li><svg class="ic"><use href="#i-bars"/></svg><h3>Scale</h3><p>Take contextual campaigns from one creator to millions of views.</p></li>
+      <li><svg class="ic"><use href="#i-shield"/></svg><h3>Transparency</h3><p>Creator views and channel performance are publicly available and independently verifiable.</p></li>
+      <li><svg class="ic"><use href="#i-one"/></svg><h3>Simplicity</h3><p>One campaign. One partner. Multiple creators.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 09 ABOUT -->
+<section id="about" class="block">
+  <div class="wrap about-grid">
+    <div>
+      <span class="eyebrow"><b>09</b> About Antonello</span>
+      <h2>We've been on <span class="o">both sides of the screen.</span></h2>
+    </div>
+    <div class="about-copy">
+      <p>Antonello is built by people with experience across advertising, media, design and digital products.</p>
+      <p>We've worked with brands, agencies and media businesses across:</p>
+      <p class="regions">mena <i>|</i> apac <i>|</i> europe <i>|</i> americas</p>
+      <p>We've worked across advertising, UI/UX, digital media, creative production and media-buying environments — giving us a practical understanding of how brands think about attention, audiences, campaigns and media.</p>
+      <p class="o strong big">Now we're building a better place for brands to appear inside creator content.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 FINAL CTA -->
+<section id="cta" class="cta">
+  <div class="wrap">
+    <h2>Your audience is already watching.</h2>
+    <h2 class="o">Let's put your brand in the conversation.</h2>
+    <a class="btn btn-lg" href="#contact">Talk to Antonello <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer (existing design, updated content) -->
+<footer id="contact">
+  <section class="collaborate-section"><h2>Let’s Collaborate</h2></section>
+
+  <section class="dummy-boxes">
+    <div class="dummy-box"><span>Welcome<br>to the Club!</span></div>
+    <div class="dummy-box"><span>Send a Brief @<br><a href="mailto:dinu@antonello.io">dinu@antonello.io</a></span></div>
+    <div class="dummy-box"><span>
+      <a href="https://www.facebook.com/antonello.studio" target="_blank" rel="noopener noreferrer">Facebook</a><br>
+      <a href="https://www.instagram.com/antonello.studio/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </span></div>
+    <div class="dummy-box"><span>Wanna Join?<br>
+      <a href="https://www.linkedin.com/company/antonello-studio" target="_blank" rel="noopener noreferrer">Check our Linkedin</a>
+    </span></div>
+    <div class="dummy-box"><span>Reach us @<br><a href="tel:+918904431402">+91 89044 31402</a><br>Bangalore, India</span></div>
+  </section>
+
+  <section class="logo-section">
+    <img src="Images/LogoStar.svg" alt="" class="logo-star">
+    <img src="Images/Logo.svg" alt="Antonello" class="logo-main">
+  </section>
+
+  <section class="footer-texts">
+    <p>© 2026 Antonello Studio Private Limited</p>
+    <p>Bangalore, India</p>
+    <p>Contextual YouTube Advertising</p>
+  </section>
+</footer>
+
+<script src="js/script.js" defer></script>
+</body>
+</html>
